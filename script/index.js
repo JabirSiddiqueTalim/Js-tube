@@ -29,23 +29,46 @@ function displayVideo(videos)
   const videoCard=document.getElementById("video-card");
  // console.log(videos);
  //{category_id: '1003', video_id: 'aaae', thumbnail: 'https://i.ibb.co/Yc4p5gD/inside-amy.jpg', title: 'Inside Amy Schumer', authors: Array(1), …}
+ //
   for(let video of videos)
   {
     console.log(video);
     const videoDiv=document.createElement("div");
     
     videoDiv.innerHTML=`
-       <div class="card bg-base-100 m-5 shadow-sm">
-        <figure>
-          <img
-            src="${video.thumbnail}"
-            alt="Shoes" />
+    <div class="card bg-base-100">
+        <figure class="relative">
+          <img src="${video.thumbnail}" alt="Shoes" />
+          <span
+            class="absolute bottom-2 right-2 text-sm rounded text-white bg-black px-2"
+            >3hrs 56 min ago</span
+          >
         </figure>
-        <div class="card-body">
-          <h2 class="card-title">${video.title}</h2>
-          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+
+        <div class="flex gap-3 px-0 py-5">
+          <div class="profile">
+            <div class="avatar">
+              <div
+                class="ring-primary ring-offset-base-100 w-6 rounded-full ring ring-offset-2"
+              >
+                <img
+                  src="${video.authors[0].profile_picture}"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="intro">
+            <h2 class="text-sm font-semibold">Midnight Serenade</h2>
+            <p class="text-sm text-gray-400 flex gap-1">
+               ${video.authors[0].profile_name}
+              <img
+                class="w-5 h-5"
+                src="https://img.icons8.com/?size=96&id=98A4yZTt9abw&format=png"
+                alt=""
+              />
+            </p>
+            <p class="text-sm text-gray-400">${video.others.views} view</p>
           </div>
         </div>
       </div>
@@ -56,3 +79,5 @@ function displayVideo(videos)
 }
 loadCategories();
 loadVideoCard();
+
+// category_id: '1001', category: 'Music
