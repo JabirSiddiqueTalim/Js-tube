@@ -56,5 +56,3 @@ function displayVideo(videos)
 }
 loadCategories();
 loadVideoCard();
-
-// category_id: '1001', category: 'Music
