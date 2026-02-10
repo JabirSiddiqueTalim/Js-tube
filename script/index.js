@@ -9,6 +9,16 @@ function loadVideoCard()
   .then(Response=>Response.json())
   .then(data=>displayVideo(data.videos));
 }
+const loadCategoriesVideo=(id)=>
+{
+   console.log(id);
+   const url =`https://openapi.programming-hero.com/api/phero-tube/category/${id}`
+   console.log(url)
+   fetch(url)
+   .then((res)=>res.json())
+   .then((data)=>displayVideo(data.category))
+}
+
 
 function displayCategories(categories) {
   const categoriesButton=document.getElementById("categories-button");
@@ -17,7 +27,7 @@ function displayCategories(categories) {
       console.log(cot)
       const categoriesDiv=document.createElement('div');
       categoriesDiv.innerHTML=`
-        <button class="btn btn-sm mr-5  hover:bg-red-800 hover:text-white">${cot.category}</button>
+        <button onclick="loadCategoriesVideo(${cot.category_id})" class="btn btn-sm mr-5  hover:bg-red-800 hover:text-white">${cot.category}</button>
       `
       categoriesButton.appendChild(categoriesDiv);
 
@@ -30,15 +40,16 @@ function displayVideo(videos)
  // console.log(videos);
  //{category_id: '1003', video_id: 'aaae', thumbnail: 'https://i.ibb.co/Yc4p5gD/inside-amy.jpg', title: 'Inside Amy Schumer', authors: Array(1), …}
  //
+ videoCard.innerHTML="";
   for(let video of videos)
   {
     console.log(video);
     const videoDiv=document.createElement("div");
     
     videoDiv.innerHTML=`
-    <div class="card bg-base-100">
+    <div class="card bg-base-100 m-5">
         <figure class="relative">
-          <img src="${video.thumbnail}" alt="Shoes" />
+          <img class="w-full h-[150px] object-cover" src="${video.thumbnail}" alt="Shoes" />
           <span
             class="absolute bottom-2 right-2 text-sm rounded text-white bg-black px-2"
             >3hrs 56 min ago</span
@@ -78,6 +89,6 @@ function displayVideo(videos)
   
 }
 loadCategories();
-loadVideoCard();
+
 
 // category_id: '1001', category: 'Music

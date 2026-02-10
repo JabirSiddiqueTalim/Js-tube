@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PH Tube</title>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
   <section>
-     <nav>
+    <nav>
       <div class="navbar bg-base-100 shadow-sm">
         <div class="navbar-start">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+              </svg>
             </div>
-            <ul
-              tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li><a>Homepage</a></li>
               <li><a>History</a></li>
               <li><a>Settings</a></li>
@@ -30,64 +33,39 @@
         </div>
         <div class="navbar-end">
           <button class="btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </button>
           <button class="btn btn-ghost btn-circle">
             <div class="indicator">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /> </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
               <span class="badge badge-xs badge-primary indicator-item"></span>
             </div>
           </button>
         </div>
       </div>
-     </nav>
-     <section id="categories-button" class="flex justify-center m-5">
-      <button class="btn btn-sm mr-5 hover:bg-red-800 hover:text-white">All</button>    
-     </section>
-     <!-- video card -->
-     <section id="video-card" class="w-11/12  w-auto grid grid-cols-3 m-5 ml-15">
-      
-      <div class="card bg-base-100">
-        <figure class="relative">
-          <img src="https://i.ibb.co/QPNzYVy/moonlight.jpg" alt="Shoes" />
-          <span
-            class="absolute bottom-2 right-2 text-sm rounded text-white bg-black px-2"
-            >3hrs 56 min ago</span
-          >
-        </figure>
+    </nav>
+    <section id="categories-button" class="flex justify-center m-5">
 
-        <div class="flex gap-3 px-0 py-5">
-          <div class="profile">
-            <div class="avatar">
-              <div
-                class="ring-primary ring-offset-base-100 w-6 rounded-full ring ring-offset-2"
-              >
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
-            </div>
-          </div>
+      <button onclick="loadVideoCard()" class="btn btn-sm mr-5 hover:bg-red-800 hover:text-white">All</button>
+    </section>
+    <!-- video card -->
+    <section id="video-card" class="w-11/12  w-auto grid grid-cols-4 m-5">
 
-          <div class="intro">
-            <h2 class="text-sm font-semibold">Midnight Serenade</h2>
-            <p class="text-sm text-gray-400 flex gap-1">
-              Awlad Hossain
-              <img
-                class="w-5 h-5"
-                src="https://img.icons8.com/?size=96&id=98A4yZTt9abw&format=png"
-                alt=""
-              />
-            </p>
-            <p class="text-sm text-gray-400">91K views</p>
-          </div>
-        </div>
-      </div>
-         
-     </section>
+
+
+    </section>
   </section>
 
 
-  <script src="./script/index.js"></script> 
+  <script src="./script/index.js"></script>
 </body>
+
 </html>
