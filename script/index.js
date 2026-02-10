@@ -41,6 +41,19 @@ function displayVideo(videos)
  //{category_id: '1003', video_id: 'aaae', thumbnail: 'https://i.ibb.co/Yc4p5gD/inside-amy.jpg', title: 'Inside Amy Schumer', authors: Array(1), …}
  //
  videoCard.innerHTML="";
+   if(videos.length==0)
+   {
+    console.log("innnnn");
+    videoCard.innerHTML=`
+      <div class="flex flex-col justify-center items-center p-30  col-span-full">
+       <img class="w-[120px]" src="./Icon.png" alt="">
+       <h1 class="text-2xl font-bold text-center">Oops!! Sorry, There is no content here</h1>
+    </div>
+
+    `
+    return;
+      
+   }
   for(let video of videos)
   {
     console.log(video);
