@@ -7,7 +7,11 @@ function loadVideoCard()
 {
   fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
   .then(Response=>Response.json())
-  .then(data=>displayVideo(data.videos));
+  .then(data=>
+    {
+      document.getElementById("all-btn").classList.add('active');
+      displayVideo(data.videos)
+});
 }
 function removeActiveBtn()
 {
