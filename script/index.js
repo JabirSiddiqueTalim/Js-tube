@@ -16,7 +16,14 @@ const loadCategoriesVideo=(id)=>
    console.log(url)
    fetch(url)
    .then((res)=>res.json())
-   .then((data)=>displayVideo(data.category))
+   .then((data)=>
+    {
+      const clickedBtn=document.getElementById(`btn-${id}`)
+      console.log(clickedBtn);
+      clickedBtn.classList.add("active");
+      displayVideo(data.category);
+
+    })
 }
 
 
@@ -27,7 +34,7 @@ function displayCategories(categories) {
       console.log(cot)
       const categoriesDiv=document.createElement('div');
       categoriesDiv.innerHTML=`
-        <button onclick="loadCategoriesVideo(${cot.category_id})" class="btn btn-sm mr-5  hover:bg-red-800 hover:text-white">${cot.category}</button>
+        <button id="btn-${cot.category_id}" onclick="loadCategoriesVideo(${cot.category_id})" class="btn btn-sm mr-5  hover:bg-red-800 hover:text-white">${cot.category}</button>
       `
       categoriesButton.appendChild(categoriesDiv);
 
