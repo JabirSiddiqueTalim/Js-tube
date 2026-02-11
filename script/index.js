@@ -9,6 +9,15 @@ function loadVideoCard()
   .then(Response=>Response.json())
   .then(data=>displayVideo(data.videos));
 }
+function removeActiveBtn()
+{
+  const activeBtn=document.getElementsByClassName('active');
+  console.log(activeBtn);
+  for(let act of activeBtn )
+  {
+    act.classList.remove('active');
+  }
+}
 const loadCategoriesVideo=(id)=>
 {
    console.log(id);
@@ -18,6 +27,7 @@ const loadCategoriesVideo=(id)=>
    .then((res)=>res.json())
    .then((data)=>
     {
+      removeActiveBtn();
       const clickedBtn=document.getElementById(`btn-${id}`)
       console.log(clickedBtn);
       clickedBtn.classList.add("active");
